@@ -7,10 +7,12 @@ name = "pypi"
 pandas = "*"
 pandas-stubs = "*"
 numpy = "*"
+lxml = "*"
 
 [dev-packages]
 mypy = "*"
 autopep8 = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.8"
