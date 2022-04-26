@@ -9,6 +9,7 @@ def format_standings(current_table: pd.DataFrame) -> pd.DataFrame:
     formatted_table = table_pruned \
         .merge(table_mapping, on='team') \
         .drop(axis=1, columns=['TEAMS', 'team'])
+    formatted_table['PT'] = pd.to_numeric(formatted_table['PT'])
     return formatted_table
 
 
@@ -22,6 +23,8 @@ def get_standings() -> pd.DataFrame:
 def format_fixtures(raw_fixtures: pd.DataFrame) -> pd.DataFrame:
     fixtures_named = raw_fixtures[["Date", "Match Details"]] \
         .rename({"Match Details": "match", "Date": "date"}, axis=1)
+    fixtures_named[['for', 'vs', 'against']] = fixtures_named.match.str.split(expand=True)
+    fixtures_named.drop(axis=1, columns=['vs', 'match'], inplace=True)
     fixtures_named['date'] = pd.to_datetime(fixtures_named['date'])
     return fixtures_named
 

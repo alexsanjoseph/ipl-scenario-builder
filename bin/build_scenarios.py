@@ -6,7 +6,6 @@ from src.outputs import write_output
 if __name__ == "__main__":
     fixtures = get_fixtures()
     standings = get_standings()
-    print(standings)
     all_results = simulate_scenarios(fixtures, standings)
     results_summary = summarize_results(all_results)
     write_output(results_summary)
