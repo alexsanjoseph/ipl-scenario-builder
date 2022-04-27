@@ -21,16 +21,20 @@ def get_standings() -> pd.DataFrame:
 
 
 def format_fixtures(raw_fixtures: pd.DataFrame) -> pd.DataFrame:
-    # fixtures_named = raw_fixtures[["Date", "Match Details"]]
-    fixtures_named = raw_fixtures
-    # fixtures_named[['for', 'vs', 'against']] = fixtures_named.match.str.split(expand=True)
-    # fixtures_named.drop(axis=1, columns=['vs', 'match'], inplace=True)
+    raw_fixtures.columns = raw_fixtures.iloc[0]
+    raw_fixtures = raw_fixtures[1:]
+    fixtures_named = raw_fixtures[["Match Centre", "Date", "Time (IST)"]]
+    fixtures_named = raw_fixtures.rename({"Match Centre": "match", "Time (IST)": "time"}, axis=1)
+    fixtures_named['datetime'] = fixtures_named['Date'] + " " + fixtures_named['time']
+    fixtures_named[['for', 'vs', 'against']] = fixtures_named.match.str.split(expand=True)
     fixtures_named['datetime'] = pd.to_datetime(fixtures_named['datetime'])
     fixtures_named.datetime = fixtures_named.datetime.dt.tz_localize('Asia/Kolkata')
 
-    return fixtures_named
+    return fixtures_named[['for', 'against', 'datetime']].iloc[:70, :]
 
 
 def get_fixtures() -> pd.DataFrame:
-    raw_fixtures = pd.read_csv("data/fixtures.csv")
+    TABLE_SOURCE = "https://www.icccricketschedule.com/ipl-2022-schedule-team-venue-time-table-pdf-point-table-ranking-winning-prediction/"
+    raw_fixtures = pd.read_html(TABLE_SOURCE)[0]
+    # raw_fixtures = pd.read_csv("data/fixtures.csv")
     return format_fixtures(raw_fixtures)

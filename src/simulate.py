@@ -12,7 +12,7 @@ def simulate_scenarios(fixtures: pd.DataFrame, standings: pd.DataFrame):
     standings = standings.sort_values("symbol")
     all_standings_list = []
 
-    epochs = 100
+    epochs = 20
     iterations = 50
     # np.random.seed(42)
     for e in range(epochs):
@@ -27,7 +27,7 @@ def simulate_scenarios(fixtures: pd.DataFrame, standings: pd.DataFrame):
             win_df = pd.DataFrame(point_counter.items(), columns=["symbol", "wins"]) \
                 .sort_values(by="symbol")
 
-            standings['final_standings'] = win_df['wins'] * 2 + standings['PT']
+            standings['final_standings'] = (win_df['wins'] - 1) * 2 + standings['PT']
             points_threshold = sorted(standings['final_standings'], reverse=True)[5]
             standings['Q'] = (standings['final_standings'] > points_threshold).astype(int)
             standings['NRR'] = (standings['final_standings'] == points_threshold).astype(int)
