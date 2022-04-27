@@ -1,63 +1,71 @@
-Match No.,Date,Match Details,Venue,Time
-1,March 2022 26,CSK vs KKR,Wankhede Stadium Mumbai,7:30 PM
-2,March 2022 27,DC vs MI,Brabourne Stadium Mumbai,3:30 PM
-3,March 2022 27,PBKS vs RCB,Dr DY Patil Sports Academy Mumbai,7:30 PM
-4,March 2022 28,GT vs LSG,Wankhede Stadium Mumbai,7:30 PM
-5,March 2022 29,SRH vs RR,Maharashtra Cricket Association Stadium Pune,7:30 PM
-6,March 2022 30,RCB vs KKR,Dr DY Patil Sports Academy Mumbai,7:30 PM
-7,March 2022 31,LSG vs CSK,Brabourne Stadium Mumbai,7:30 PM
-8,April 2022 01,KKR vs PBKS,Wankhede Stadium Mumbai,7:30 PM
-9,April 2022 02,MI vs RR,Dr DY Patil Sports Academy Mumbai,3:30 PM
-10,April 2022 02,GT vs DC,Maharashtra Cricket Association Stadium Pune,7:30 PM
-11,April 2022 03,CSK vs PBKS,Brabourne Stadium Mumbai,7:30 PM
-12,April 2022 04,SRH vs LSG,Dr DY Patil Sports Academy Mumbai,7:30 PM
-13,April 2022 05,RR vs RCB,Wankhede Stadium Mumbai,7:30 PM
-14,April 2022 06,KKR vs MI,Maharashtra Cricket Association Stadium Pune,7:30 PM
-15,April 2022 07,LSG vs DC,Dr DY Patil Sports Academy Mumbai,7:30 PM
-16,April 2022 08,PBKS vs GT,Brabourne Stadium Mumbai,7:30 PM
-17,April 2022 09,CSK vs SRH,Dr DY Patil Sports Academy Mumbai,3:30 PM
-18,April 2022 09,RCB vs MI,Maharashtra Cricket Association Stadium Pune,7:30 PM
-19,April 2022 10,KKR vs DC,Brabourne Stadium Mumbai,3:30 PM
-20,April 2022 10,RR vs LSG,Wankhede Stadium Mumbai,7:30 PM
-21,April 2022 11,SRH vs GT,Dr DY Patil Sports Academy Mumbai,7:30 PM
-22,April 2022 12,CSK vs RCB,Dr DY Patil Sports Academy Mumbai,7:30 PM
-23,April 2022 13,MI vs PBKS,Maharashtra Cricket Association Stadium Pune,7:30 PM
-24,April 2022 14,RR vs GT,Dr DY Patil Sports Academy Mumbai,7:30 PM
-25,April 2022 15,SRH vs KKR,Brabourne Stadium Mumbai,7:30 PM
-26,April 2022 16,MI vs LSG,Brabourne Stadium Mumbai,7:30 PM
-27,April 2022 16,DC vs RCB,Wankhede Stadium Mumbai,7:30 PM
-28,April 2022 17,PBKS vs SRH,Dr DY Patil Sports Academy Mumbai,3:30 PM
-29,April 2022 17,GT vs CSK,Maharashtra Cricket Association Stadium Pune,7:30 PM
-30,April 2022 18,RR vs KKR,Brabourne Stadium Mumbai,7:30 PM
-31,April 2022 19,LSG vs RCB,Dr DY Patil Sports Academy Mumbai,7:30 PM
-32,April 2022 20,DC vs PBKS,Maharashtra Cricket Association Stadium Pune,7:30 PM
-33,April 2022 21,MI vs CSK,Dr DY Patil Sports Academy Mumbai,7:30 PM
-34,April 2022 22,DC vs RR,Maharashtra Cricket Association Stadium Pune,7:30 PM
-35,April 2022 23,KKR vs GT,Dr DY Patil Sports Academy Mumbai,3:30 PM
-36,April 2022 23,RCB vs SRH,Brabourne Stadium Mumbai,7:30 PM
-37,April 2022 24,LSG vs MI,Wankhede Stadium Mumbai,7:30 PM
-38,April 2022 25,PBKS vs CSK,Wankhede Stadium Mumbai,7:30 PM
-39,April 2022 26,RCB vs RR,Maharashtra Cricket Association Stadium Pune,7:30 PM
-40,April 2022 27,GT vs SRH,Wankhede Stadium Mumbai,7:30 PM
-41,April 2022 28,DC vs KKR,Wankhede Stadium Mumbai,7:30 PM
-42,April 2022 29,PBKS vs LSG,Maharashtra Cricket Association Stadium Pune,7:30 PM
-43,April 2022 30,GT vs RCB,Brabourne Stadium Mumbai,3:30 PM
-44,April 2022 30,RR vs MI,Dr DY Patil Sports Academy Mumbai,7:30 PM
-45,May 2022 01,DC vs LSG,Wankhede Stadium Mumbai,3:30 PM
-46,May 2022 01,SRH vs CSK,Maharashtra Cricket Association Stadium Pune,7:30 PM
-47,May 2022 02,KKR vs RR,Wankhede Stadium Mumbai,7:30 PM
-48,May 2022 03,GT vs PBKS,Dr DY Patil Sports Academy Mumbai,7:30 PM
-49,May 2022 04,RCB vs CSK,Maharashtra Cricket Association Stadium Pune,7:30 PM
-50,May 2022 05,DC vs SRH,Brabourne Stadium Mumbai,7:30 PM
-51,May 2022 06,GT vs MI,Brabourne Stadium Mumbai,7:30 PM
-52,May 2022 07,PBKS vs RR,Wankhede Stadium Mumbai,3:30 PM
-53,May 2022 07,LSG vs KKR,Maharashtra Cricket Association Stadium Pune,7:30 PM
-54,May 2022 08,SRH vs RCB,Wankhede Stadium Mumbai,3:30 PM
-55,May 2022 08,CSK vs DC,Dr DY Patil Sports Academy Mumbai,7:30 PM
-56,May 2022 09,MI vs KKR,Dr DY Patil Sports Academy Mumbai,7:30 PM
-57,May 2022 10,LSG vs GT,Maharashtra Cricket Association Stadium Pune,7:30 PM
-58,May 2022 11,RR vs DC,Dr DY Patil Sports Academy Mumbai,7:30 PM
-59,May 2022 12,CSK vs MI,Wankhede Stadium Mumbai,7:30 PM
-60,May 2022 13,RCB vs PBKS,Brabourne Stadium Mumbai,7:30 PM
-61,May 2022 14,KKR vs SRH,Maharashtra Cricket Association Stadium Pune,7:30 PM
-62,May 2022 15,CSK vs GT,Wankhede Stadium Mumbai,3:30 PM
+for,against,datetime
+CSK,KKR,26-March-2022 07:30 PM
+SRH,RR,27-March-2022 07:30 PM
+GT,RCB,28-March-2022 07:30 PM
+DC,MI,29-March-2022 07:30 PM
+LSG,PBKS,30-March-2022 07:30 PM
+KKR,SRH,31-March-2022 07:30 PM
+RR,DC,01-April-2022 07:30 PM
+RCB,MI,02-April-2022 03:30 PM
+LSG,GT,02-April-2022 07:30 PM
+PBKS,CSK,03-April-2022 03:30 PM
+SRH,RCB,03-April-2022 07:30 PM
+MI,GT,04-April-2022 07:30 PM
+DC,KKR,05-April-2022 07:30 PM
+CSK,RCB,06-April-2022 07:30 PM
+SRH,PBKS,07-April-2022 07:30 PM
+RR,KKR,08-April-2022 07:30 PM
+LSG,DC,09-April-2022 03:30 PM
+GT,CSK,09-April-2022 07:30 PM
+DC,SRH,10-April-2022 03:30 PM
+RCB,RR,10-April-2022 07:30 PM
+MI,LSG,11-April-2022 07:30 PM
+KKR,GT,12-April-2022 07:30 PM
+PBKS,RR,13-April-2022 07:30 PM
+MI,CSK,14-April-2022 07:30 PM
+KKR,RCB,15-April-2022 07:30 PM
+DC,PBKS,16-April-2022 03:30 PM
+SRH,MI,16-April-2022 07:30 PM
+RR,GT,17-April-2022 03:30 PM
+CSK,LSG,17-April-2022 07:30 PM
+DC,RCB,18-April-2022 07:30 PM
+LSG,CSK,19-April-2022 07:30 PM
+GT,SRH,20-April-2022 07:30 PM
+KKR,PBKS,21-April-2022 07:30 PM
+RR,MI,22-April-2022 07:30 PM
+RCB,LSG,23-April-2022 03:30 PM
+GT,DC,23-April-2022 07:30 PM
+MI,PBKS,24-April-2022 03:30 PM
+RR,LSG,24-April-2022 07:30 PM
+CSK,SRH,25-April-2022 07:30 PM
+DC,GT,26-April-2022 07:30 PM
+SRH,KKR,27-April-2022 07:30 PM
+CSK,RR,28-April-2022 07:30 PM
+LSG,MI,29-April-2022 07:30 PM
+GT,KKR,30-April-2022 07:30 PM
+SRH,DC,30-April-2022 07:30 PM
+RCB,PBKS,01-May-2022 03:30 PM
+KKR,CSK,01-May-2022 07:30 PM
+MI,DC,02-May-2022 07:30 PM
+RCB,GT,03-May-2022 07:30 PM
+PBKS,LSG,04-May-2022 07:30 PM
+RR,CSK,05-May-2022 07:30 PM
+PBKS,MI,06-May-2022 07:30 PM
+SRH,LSG,07-May-2022 07:30 PM
+RR,RCB,08-May-2022 03:30 PM
+CSK,DC,08-May-2022 07:30 PM
+GT,PBKS,09-May-2022 07:30 PM
+MI,SRH,10-May-2022 07:30 PM
+RCB,KKR,11-May-2022 07:30 PM
+PBKS,DC,12-May-2022 07:30 PM
+GT,RR,13-May-2022 07:30 PM
+KKR,MI,14-May-2022 03:30 PM
+LSG,SRH,14-May-2022 07:30 PM
+PBKS,RCB,15-May-2022 03:30 PM
+CSK,GT,15-May-2022 07:30 PM
+LSG,KKR,16-May-2022 07:30 PM
+MI,RR,17-May-2022 07:30 PM
+PBKS,SRH,18-May-2022 07:30 PM
+DC,LSG,19-May-2022 07:30 PM
+RCB,CSK,20-May-2022 07:30 PM
+KKR,RR,21-May-2022 07:30 PM

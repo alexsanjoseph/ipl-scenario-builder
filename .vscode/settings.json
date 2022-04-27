@@ -6,7 +6,12 @@
   "python.formatting.provider": "autopep8",
   "editor.formatOnSave": true,
   "python.linting.mypyEnabled": true,
-  "python.testing.pytestArgs": ["tests"],
+  "python.testing.pytestArgs": ["."],
   "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "pytest",
+  "python.testing.cwd": "/Users/alexsanjoseph/Learning/ipl-scenario-builder",
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}"
+  }
 }

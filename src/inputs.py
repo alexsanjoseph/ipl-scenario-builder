@@ -21,11 +21,13 @@ def get_standings() -> pd.DataFrame:
 
 
 def format_fixtures(raw_fixtures: pd.DataFrame) -> pd.DataFrame:
-    fixtures_named = raw_fixtures[["Date", "Match Details"]] \
-        .rename({"Match Details": "match", "Date": "date"}, axis=1)
-    fixtures_named[['for', 'vs', 'against']] = fixtures_named.match.str.split(expand=True)
-    fixtures_named.drop(axis=1, columns=['vs', 'match'], inplace=True)
-    fixtures_named['date'] = pd.to_datetime(fixtures_named['date'])
+    # fixtures_named = raw_fixtures[["Date", "Match Details"]]
+    fixtures_named = raw_fixtures
+    # fixtures_named[['for', 'vs', 'against']] = fixtures_named.match.str.split(expand=True)
+    # fixtures_named.drop(axis=1, columns=['vs', 'match'], inplace=True)
+    fixtures_named['datetime'] = pd.to_datetime(fixtures_named['datetime'])
+    fixtures_named.datetime = fixtures_named.datetime.dt.tz_localize('Asia/Kolkata')
+
     return fixtures_named
 
 
