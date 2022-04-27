@@ -8,6 +8,7 @@ from src.outputs import write_output
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
+st.header("IPL Qualifier Predictor")
 
 fixtures = get_fixtures()
 standings = get_standings()

@@ -28,7 +28,7 @@ def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.
 
 
 def simulate_single_epoch(filtered_fixtures_np: pd.DataFrame, standings: pd.DataFrame) -> pd.DataFrame:
-    iterations = 100
+    iterations = 50
     all_standings = standings[['symbol']].drop(['symbol'], axis=1)
     all_standings[['Q', 'NRR', 'F']] = 0
     for i in range(iterations):
