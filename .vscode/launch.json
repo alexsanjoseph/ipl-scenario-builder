@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Current File",
+      "name": "Python: App",
       "type": "python",
       "request": "launch",
-      "program": "bin/build_scenarios.py",
+      "program": "bin/app.py",
       "console": "integratedTerminal",
       "justMyCode": true,
       "cwd": "${workspaceFolder}",

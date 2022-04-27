@@ -8,6 +8,7 @@ pandas = "*"
 pandas-stubs = "*"
 numpy = "*"
 lxml = "*"
+streamlit = "*"
 
 [dev-packages]
 mypy = "*"
