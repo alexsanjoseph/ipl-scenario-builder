@@ -1,0 +1,12 @@
+
+[packages]
+pandas = "*"
+pandas-stubs = "*"
+numpy = "*"
+lxml = "*"
+streamlit = "*"
+
+[dev-packages]
+mypy = "*"
+autopep8 = "*"
+pytest = "*"
