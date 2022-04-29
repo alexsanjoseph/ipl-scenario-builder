@@ -59,7 +59,7 @@ spinner.empty()
 table_slot.table(all_results)
 
 with st.expander("Methodology ⓘ"):
-    st.write("""
+    st.markdown("""
          The Model is a simple monte carlo simulation where either team has an equal (50%) chance of winning each match and simulating as many timelines to find the probabilities.
          A team is considered:
          - qualified (Yes %) if it is in the top 4 and the 5th team has lesser points,
@@ -68,8 +68,8 @@ with st.expander("Methodology ⓘ"):
 
          Expected Number of points is the average number of points across all simulations.
 
-         The source code can be found at https://github.com/alexsanjoseph/ipl-scenario-builder
+         The source code can be found at the [source github repo](https://github.com/alexsanjoseph/ipl-scenario-builder)
      """)
 
-footer_text = "Made with ❤ by <a style='display: block;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\">Alex Joseph</a> with Streamlit, Marvel and ESPNCricinfo <a style='display: block; text-align: center;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\"></a> (click the > on top left on mobile to access the scenario sidebar)"
+footer_text = "Made with ❤ by <a style='display: block;' href=\"https://blog.alexsanjoseph.com//\" target=\"_blank\">Alex Joseph</a> with Streamlit, Marvel and ESPNCricinfo <a style='display: block; text-align: center;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\"></a> (click the > on top left on mobile to access the scenario sidebar)"
 st.markdown(create_footer(footer_text), unsafe_allow_html=True)

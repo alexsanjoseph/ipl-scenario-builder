@@ -13,14 +13,15 @@ text-decoration: underline;
 }
 
 .footer {
-position: fixed;
-right: 0;
-bottom: 0px;
-width: 100%;
+# position: fixed;
+# right: 0;
+# bottom: 0px;
+# width: 100%;
 # background-color: white;
 # color: black;
-text-align: right;
+text-align: center;
 padding-right: 3rem;
+padding-top: 3rem;
 }
 </style>
 <div class="footer">
