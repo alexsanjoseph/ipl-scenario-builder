@@ -45,7 +45,7 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
     standings = standings.sort_values("symbol").reset_index(drop=True)
     all_standings_list = []
 
-    epochs = 10
+    epochs = 1
     for e in range(epochs):
         all_standings = simulate_single_epoch(filtered_fixtures_np, standings, iterations, progress)
         all_standings_list.append(all_standings)
