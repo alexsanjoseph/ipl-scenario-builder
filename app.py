@@ -7,8 +7,21 @@ from src.summarize import summarize_results
 from src.outputs import write_output
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+st.write('<style>div.row-widget.stSpinner > div{text-align:center;}</style>', unsafe_allow_html=True)
+
+hide_table_row_index = """
+            <style>
+            tbody th {display:none}
+            .blank {display:none}
+            </style>
+            """
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 st.header("IPL Qualifier Predictor")
+st.markdown("#### Current Standings and Qualification Chances")
+progress = st.progress(0)
+st.sidebar.markdown("### Choose Number of iterations")
+iterations = int(st.sidebar.slider("Iterations", 500, 50000, 1000)/2)
 
 fixtures = get_fixtures()
 standings = get_standings()
@@ -27,16 +40,22 @@ def recalculate():
 
 table_slot = st.empty()
 
+
+st.sidebar.markdown("### Qualification Scenarios")
+st.sidebar.markdown(
+    "*Choose a winning team for each match or leave it at random for a 50% chance of either team winning...*")
 for i in range(filtered_fixtures.shape[0]):
     # for i in range(5):
     box_array = ["Random", filtered_fixtures.iloc[i, 0], filtered_fixtures.iloc[i, 1]]
 
-    st.session_state['winners'][i] = st.radio(
+    st.session_state['winners'][i] = st.sidebar.radio(
         f"Match {filtered_fixtures.index[i]}",
         box_array,
         box_array.index(st.session_state['winners'][i])
     )
 
 filtered_fixtures_fixed = recalculate()
-all_results = simulate_scenarios(filtered_fixtures_fixed, standings)
+with st.spinner('Calculating scenarios...'):
+    all_results = simulate_scenarios(filtered_fixtures_fixed, standings, iterations, progress)
+
 table_slot.table(all_results)
