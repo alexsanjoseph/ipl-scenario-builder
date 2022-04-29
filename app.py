@@ -9,6 +9,36 @@ from src.outputs import write_output
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 st.write('<style>div.row-widget.stSpinner > div{text-align:center;}</style>', unsafe_allow_html=True)
 
+footer = """<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Made with ❤ by <a style='display: block; text-align: center;' href="https://blog.alexsanjoseph.com//" target="_blank">Alex Joseph</a></p>
+</div>
+"""
+
+st.markdown(footer, unsafe_allow_html=True)
+
 hide_table_row_index = """
             <style>
             tbody th {display:none}
