@@ -20,8 +20,9 @@ st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.header("IPL Qualifier Predictor")
 st.markdown("#### Current Standings and Qualification Chances")
 progress = st.progress(0)
-st.sidebar.markdown("### Choose Number of iterations")
-iterations = int(st.sidebar.slider("Iterations", 500, 20000, 1000)/2)
+spinner = st.empty()
+st.sidebar.markdown("### Choose number of timelines to check!")
+iterations = int(st.sidebar.slider("Iterations", 500, 50000, 14605)/4)
 
 fixtures = get_fixtures()
 standings = get_standings()
@@ -55,7 +56,9 @@ for i in range(filtered_fixtures.shape[0]):
     )
 
 filtered_fixtures_fixed = recalculate()
-with st.spinner('Calculating scenarios...'):
-    all_results = simulate_scenarios(filtered_fixtures_fixed, standings, iterations, progress)
+# with st.spinner('Calculating scenarios...'):
+spinner.markdown("![Alt Text](https://c.tenor.com/nDhUSRc7Q-8AAAAd/timeline-doctor-strange.gif)")
+all_results = simulate_scenarios(filtered_fixtures_fixed, standings, iterations, progress)
+spinner.empty()
 
 table_slot.table(all_results)
