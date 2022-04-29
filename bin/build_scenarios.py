@@ -8,5 +8,4 @@ if __name__ == "__main__":
     filtered_fixtures = filter_fixtures(fixtures)
     standings = get_standings()
     all_results = simulate_scenarios(filtered_fixtures, standings)
-    results_summary = summarize_results(all_results)
-    write_output(results_summary)
+    print(all_results)

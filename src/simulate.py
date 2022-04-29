@@ -4,6 +4,7 @@ import numpy as np
 from collections import Counter
 from zoneinfo import ZoneInfo
 import streamlit as st
+from src.streamlit import add_colour
 
 
 def filter_fixtures(fixtures: pd.DataFrame) -> pd.DataFrame:
@@ -56,11 +57,12 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
     # stdev_df = pd.DataFrame(np.array(all_standings_list).std(axis=0), columns=['QStdev', 'NRRStdev', 'FStdev'])
     final_df = mean_df  # pd.concat([mean_df, stdev_df], axis=1).reset_index(drop=True)
     # final_df['symbol'] = standings['symbol'].reset_index(drop=True)
-    mean_df['final_standings'] = (mean_df['final_standings'] / 100).astype(int)
+    mean_df['final_standings'] = (mean_df['final_standings'] / 100).round()
     final_df = pd.concat([standings[["symbol", "M", "W", "L", "T", "PT"]], mean_df], axis=1)
     final_df = final_df.sort_values(['Q', 'NRR', "final_standings"], ascending=False) \
         .rename({"symbol": "Team", "Q": "Yes(%)", "final_standings": "Expected Points",
                  "M": "Matches", "W": "Wins", "L": "Losses", "T": "Ties", "PT": "Points",
                  "NRR": "On NRR (%)", "F": "No(%)"}, axis=1) \
-        .reset_index(drop=True)
+        .reset_index(drop=True)  # \
+    # .style.applymap(add_colour, subset="Expected Points")
     return(final_df)

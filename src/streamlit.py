@@ -56,3 +56,8 @@ def reduce_whitespace():
 }
 </style>
         """
+
+
+def add_colour(val):
+    color = 'lightred' if val < 16 else 'lightyellow' if val == 16 else 'lightgreen'
+    return f'background-color: {color}'
