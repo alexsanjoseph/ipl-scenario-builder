@@ -3,56 +3,23 @@ import numpy as np
 
 from src.inputs import get_standings, get_fixtures, get_standings
 from src.simulate import simulate_scenarios, filter_fixtures
-from src.summarize import summarize_results
-from src.outputs import write_output
+from src.streamlit import create_footer, hide_row_headers, hide_full_screen
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 st.write('<style>div.row-widget.stSpinner > div{text-align:center;}</style>', unsafe_allow_html=True)
 
-footer = """<style>
-a:link , a:visited{
-color: blue;
-background-color: transparent;
-text-decoration: underline;
-}
+footer_text = "Made with ❤ by <a style='display: block; text-align: center;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\">Alex Joseph</a> with Streamlit, Marvel and ESPNCricinfo"
+st.markdown(create_footer(footer_text), unsafe_allow_html=True)
 
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-text-decoration: underline;
-}
-
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: white;
-color: black;
-text-align: center;
-}
-</style>
-<div class="footer">
-<p>Made with ❤ by <a style='display: block; text-align: center;' href="https://blog.alexsanjoseph.com//" target="_blank">Alex Joseph</a></p>
-</div>
-"""
-
-st.markdown(footer, unsafe_allow_html=True)
-
-hide_table_row_index = """
-            <style>
-            tbody th {display:none}
-            .blank {display:none}
-            </style>
-            """
-st.markdown(hide_table_row_index, unsafe_allow_html=True)
+st.markdown(hide_row_headers(), unsafe_allow_html=True)
+st.markdown(hide_full_screen(), unsafe_allow_html=True)
 
 st.header("IPL Qualifier Predictor")
 st.markdown("#### Current Standings and Qualification Chances")
 progress = st.progress(0)
 spinner = st.empty()
-st.sidebar.markdown("### Choose number of timelines to check!")
-iterations = int(st.sidebar.slider("Iterations", 500, 10000, 1465)/2)
+st.sidebar.markdown("### Choose number of timelines to visit!")
+iterations = int(st.sidebar.slider("# simulations", 500, 10000, 1465)/2)
 
 fixtures = get_fixtures()
 standings = get_standings()
