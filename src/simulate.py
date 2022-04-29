@@ -9,7 +9,7 @@ import streamlit as st
 def filter_fixtures(fixtures: pd.DataFrame) -> pd.DataFrame:
     current_time = datetime.datetime.now(ZoneInfo('Asia/Kolkata'))
     match_finish_times = fixtures['datetime'] + datetime.timedelta(hours=3)
-    filtered_fixtures = fixtures[match_finish_times > current_time].drop(['datetime'], axis=1)
+    filtered_fixtures = fixtures[match_finish_times > current_time]
     return filtered_fixtures
 
 
@@ -47,7 +47,6 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
 
     epochs = 1
     for e in range(epochs):
-        print(e)
         all_standings = simulate_single_epoch(filtered_fixtures_np, standings, iterations, progress)
         all_standings_list.append(all_standings)
 

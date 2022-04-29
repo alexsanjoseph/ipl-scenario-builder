@@ -49,7 +49,7 @@ for i in range(filtered_fixtures.shape[0]):
     box_array = ["Random", filtered_fixtures.iloc[i, 0], filtered_fixtures.iloc[i, 1]]
 
     st.session_state['winners'][i] = st.sidebar.radio(
-        f"Match {filtered_fixtures.index[i]}",
+        f"Match {filtered_fixtures.index[i]}: {filtered_fixtures.iloc[i, 2].strftime('%a, %d %b %Y %H:%M')}",
         box_array,
         box_array.index(st.session_state['winners'][i])
     )
