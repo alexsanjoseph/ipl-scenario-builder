@@ -22,7 +22,7 @@ def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.
         .sort_values(by="symbol")
 
     standings['final_standings'] = (win_df['wins'] - 1) * 2 + standings['PT']
-    points_threshold = sorted(standings['final_standings'], reverse=True)[5]
+    points_threshold = sorted(standings['final_standings'], reverse=True)[4]
     standings['Q'] = (standings['final_standings'] > points_threshold).astype(int)
     standings['NRR'] = (standings['final_standings'] == points_threshold).astype(int)
     standings['F'] = (standings['final_standings'] < points_threshold).astype(int)
