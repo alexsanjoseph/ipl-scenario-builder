@@ -6,7 +6,7 @@ Flow:
 
 - Get the fixtures from https://www.icccricketschedule.com
 - Get the current standings from http://www.espncricinfo.com
-- Find out the games starting after current time (fixture times + 3 hours)
+- Find out the games starting after current time (fixture times + 4 hours)
 - Do many simulations on which team wins each match.
 - Calculate the summary statistics as probabilities
 

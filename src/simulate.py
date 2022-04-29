@@ -8,7 +8,7 @@ import streamlit as st
 
 def filter_fixtures(fixtures: pd.DataFrame) -> pd.DataFrame:
     current_time = datetime.datetime.now(ZoneInfo('Asia/Kolkata'))
-    match_finish_times = fixtures['datetime'] + datetime.timedelta(hours=3)
+    match_finish_times = fixtures['datetime'] + datetime.timedelta(hours=4)
     filtered_fixtures = fixtures[match_finish_times > current_time]
     return filtered_fixtures
 
