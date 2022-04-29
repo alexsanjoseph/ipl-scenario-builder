@@ -14,12 +14,13 @@ text-decoration: underline;
 
 .footer {
 position: fixed;
-left: 0;
-bottom: 0;
+right: 0;
+bottom: 0px;
 width: 100%;
-background-color: white;
-color: black;
-text-align: center;
+# background-color: white;
+# color: black;
+text-align: right;
+padding-right: 3rem;
 }
 </style>
 <div class="footer">
@@ -44,3 +45,13 @@ button[title="View fullscreen"]{
     visibility: hidden;}
 </style>
 '''
+
+
+def reduce_whitespace():
+    return """
+<style>
+.block-container {
+    margin-top: -8rem;
+}
+</style>
+        """

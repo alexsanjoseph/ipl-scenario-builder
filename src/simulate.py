@@ -31,12 +31,12 @@ def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.
 
 def simulate_single_epoch(filtered_fixtures_np: pd.DataFrame, standings: pd.DataFrame, iterations: int = 1000, progress=None) -> pd.DataFrame:
     all_standings = standings[['symbol']].drop(['symbol'], axis=1)
-    all_standings[['Q', 'NRR', 'F']] = 0
+    all_standings[['Q', 'NRR', 'F', "final_standings"]] = 0
     for i in range(iterations):
         if progress:
             progress.progress(i/iterations)
         standings = simulate_single_iteration(filtered_fixtures_np, standings)
-        all_standings += standings[['Q', 'NRR', 'F']]
+        all_standings += standings[['Q', 'NRR', 'F', 'final_standings']]
     return all_standings * 100/iterations
 
 
@@ -52,13 +52,14 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
 
     #
     # all_standings_list
-    mean_df = pd.DataFrame(np.array(all_standings_list).mean(axis=0), columns=['Q', 'NRR', 'F'])
+    mean_df = pd.DataFrame(np.array(all_standings_list).mean(axis=0), columns=['Q', 'NRR', 'F', "final_standings"])
     # stdev_df = pd.DataFrame(np.array(all_standings_list).std(axis=0), columns=['QStdev', 'NRRStdev', 'FStdev'])
     final_df = mean_df  # pd.concat([mean_df, stdev_df], axis=1).reset_index(drop=True)
     # final_df['symbol'] = standings['symbol'].reset_index(drop=True)
+    mean_df['final_standings'] = mean_df['final_standings'] / 100
     final_df = pd.concat([standings[["symbol", "M", "W", "L", "T", "PT"]], mean_df], axis=1)
     final_df = final_df.sort_values('Q', ascending=False) \
-        .rename({"symbol": "Team", "Q": "Yes(%)",
+        .rename({"symbol": "Team", "Q": "Yes(%)", "final_standings": "Expected Points",
                  "M": "Matches", "W": "Wins", "L": "Losses", "T": "Ties", "PT": "Points",
                  "NRR": "On NRR (%)", "F": "No(%)"}, axis=1) \
         .reset_index(drop=True)
