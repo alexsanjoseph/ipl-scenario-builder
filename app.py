@@ -21,7 +21,7 @@ st.header("IPL Qualifier Predictor")
 st.markdown("#### Current Standings and Qualification Chances")
 progress = st.progress(0)
 st.sidebar.markdown("### Choose Number of iterations")
-iterations = int(st.sidebar.slider("Iterations", 500, 50000, 1000)/2)
+iterations = int(st.sidebar.slider("Iterations", 500, 20000, 1000)/2)
 
 fixtures = get_fixtures()
 standings = get_standings()
