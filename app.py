@@ -8,7 +8,7 @@ from src.streamlit import create_footer, hide_row_headers, hide_full_screen
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 st.write('<style>div.row-widget.stSpinner > div{text-align:center;}</style>', unsafe_allow_html=True)
 
-footer_text = "Made with ❤ by <a style='display: block; text-align: center;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\">Alex Joseph</a> with Streamlit, Marvel and ESPNCricinfo"
+footer_text = "Made with ❤ by <a style='display: block; text-align: center;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\">Alex Joseph</a> with Streamlit, Marvel and ESPNCricinfo <a style='display: block; text-align: center;' href=\"https: // blog.alexsanjoseph.com//\" target=\"_blank\"></a> (click the > on top left on mobile to access the scenario sidebar)"
 st.markdown(create_footer(footer_text), unsafe_allow_html=True)
 
 st.markdown(hide_row_headers(), unsafe_allow_html=True)
