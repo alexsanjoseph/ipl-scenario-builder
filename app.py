@@ -22,7 +22,7 @@ st.markdown("#### Current Standings and Qualification Chances")
 progress = st.progress(0)
 spinner = st.empty()
 st.sidebar.markdown("### Choose number of timelines to check!")
-iterations = int(st.sidebar.slider("Iterations", 500, 50000, 14605)/4)
+iterations = int(st.sidebar.slider("Iterations", 500, 10000, 1465)/2)
 
 fixtures = get_fixtures()
 standings = get_standings()
