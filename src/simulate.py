@@ -58,7 +58,7 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
     # final_df['symbol'] = standings['symbol'].reset_index(drop=True)
     mean_df['final_standings'] = (mean_df['final_standings'] / 100).astype(int)
     final_df = pd.concat([standings[["symbol", "M", "W", "L", "T", "PT"]], mean_df], axis=1)
-    final_df = final_df.sort_values('Q', ascending=False) \
+    final_df = final_df.sort_values(['Q', 'NRR'], ascending=False) \
         .rename({"symbol": "Team", "Q": "Yes(%)", "final_standings": "Expected Points",
                  "M": "Matches", "W": "Wins", "L": "Losses", "T": "Ties", "PT": "Points",
                  "NRR": "On NRR (%)", "F": "No(%)"}, axis=1) \
