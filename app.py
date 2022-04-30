@@ -62,11 +62,9 @@ with st.expander("Methodology ⓘ"):
     st.markdown("""
          The Model is a simple monte carlo simulation where either team has an equal (50%) chance of winning each match and simulating as many timelines to find the probabilities.
          A team is considered:
-         - qualified (Yes %) if it is in the top 4 and the 5th team has lesser points,
-         - not qualified (No %) if the team has less points is in the bottom 4 and has lesser points than the 4th team,
-         - qualified on NRR (on NRR%) if a team has the same points as the 5th team.
-
-         Expected Number of points is the average number of points across all simulations.
+         - Top 2 if it is in the top 2 and the 3th team has lesser points, or Top 4 if it is in the top 4 and 5th team has lesser points
+         - Not in Top 4 if the team has less points is in the bottom 4 and has lesser points than the 4th team,
+         - Top 2/Top 4 on NRR if a team has the same points as the 3rd/5th team appropariately.
 
          The source code can be found at the [source github repo](https://github.com/alexsanjoseph/ipl-scenario-builder)
      """)
