@@ -1,8 +1,8 @@
 import streamlit as st
 import numpy as np
 
-from src.inputs import get_standings, get_fixtures, get_standings
-from src.simulate import simulate_scenarios, filter_fixtures
+from src.inputs import get_standings, get_fixtures, get_standings, filter_fixtures
+from src.simulate import simulate_scenarios
 from src.streamlit import create_footer, hide_row_headers, hide_full_screen, reduce_whitespace
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
@@ -21,7 +21,7 @@ iterations = int(st.sidebar.slider("# simulations", 500, 10000, 1465)/2)
 
 fixtures = get_fixtures()
 standings = get_standings()
-filtered_fixtures = filter_fixtures(fixtures)
+filtered_fixtures = filter_fixtures(fixtures, standings)
 if 'winners' not in st.session_state:
     st.session_state['winners'] = ["Random"] * filtered_fixtures.shape[0]
 

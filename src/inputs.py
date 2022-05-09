@@ -38,3 +38,11 @@ def get_fixtures() -> pd.DataFrame:
     raw_fixtures = pd.read_html(TABLE_SOURCE)[0]
     # raw_fixtures = pd.read_csv("data/fixtures.csv")
     return format_fixtures(raw_fixtures)
+
+
+def filter_fixtures(fixtures: pd.DataFrame, standings: pd.DataFrame) -> pd.DataFrame:
+    # current_time = datetime.datetime.now(ZoneInfo('Asia/Kolkata'))
+    # match_finish_times = fixtures['datetime'] + datetime.timedelta(hours=4)
+    total_matches = int(standings['M'].astype(int).sum()/2)  # find total matches done
+    filtered_fixtures = fixtures.iloc[total_matches:, ]
+    return filtered_fixtures

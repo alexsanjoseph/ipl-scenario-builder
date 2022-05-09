@@ -1,17 +1,7 @@
 import pandas as pd
-import datetime
 import numpy as np
 from collections import Counter
-from zoneinfo import ZoneInfo
-import streamlit as st
 from src.streamlit import add_colour
-
-
-def filter_fixtures(fixtures: pd.DataFrame) -> pd.DataFrame:
-    current_time = datetime.datetime.now(ZoneInfo('Asia/Kolkata'))
-    match_finish_times = fixtures['datetime'] + datetime.timedelta(hours=4)
-    filtered_fixtures = fixtures[match_finish_times > current_time]
-    return filtered_fixtures
 
 
 def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.DataFrame) -> pd.DataFrame:
