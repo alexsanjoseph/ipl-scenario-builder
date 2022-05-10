@@ -21,8 +21,8 @@ jobs:
       run: pipenv run data
     - name: Commit report
       run: |
-        git config --global user.name 'alexsanjoseph'
-        git config --global user.email 'alexsanjoseph@gmail.com'
+        git config --global user.name 'autobot'
+        git config --global user.email 'autobot@no-reply.com'
         git add -A
         git commit --allow-empty -am "Automated data update"
         git push
