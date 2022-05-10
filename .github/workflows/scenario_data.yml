@@ -18,7 +18,7 @@ jobs:
         cache: 'pipenv'
     - run: pipenv install
     - name: Run a one-line script
-      run: PYTHONPATH=. python bin/ipl_scenario_data.py
+      run: pipenv run data
     - name: switching from HTTPS to SSH
       run: git remote set-url origin ${{ secrets.ssh }}
     - name: check for changes
