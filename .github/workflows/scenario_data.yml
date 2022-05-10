@@ -9,11 +9,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - name: Install pipenv
+      run: pipx install pipenv
+    - uses: actions/setup-python@v3
       with:
         python-version: '3.9'
-        cache: 'pip'
+        cache: 'pipenv'
+    - run: pipenv install
     - name: Run a one-line script
       run: PYTHONPATH=. python bin/ipl_scenario_data.py
     - name: switching from HTTPS to SSH
