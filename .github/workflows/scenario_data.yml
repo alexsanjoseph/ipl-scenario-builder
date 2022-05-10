@@ -1,0 +1,26 @@
+name: Update Data for IPL Scenarios
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * * '
+jobs:
+  update_data:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: PYTHONPATH=. python bin/ipl_scenario_data.py
+    - name: switching from HTTPS to SSH
+      run: git remote set-url origin ${{ secrets.ssh }}
+    - name: check for changes
+      run: git status
+    - name: stage changed files
+      run: git add .
+    - name: commit changed files
+      run: git commit -m "Auto updating data files"
+    - name: fetch from master
+      run: git fetch origin master
+    - name: push code to master
+      run: git push origin HEAD:master

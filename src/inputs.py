@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def format_standings(current_table: pd.DataFrame) -> pd.DataFrame:
-    table_pruned = current_table[['TEAMS', 'M', "W", "L", "T", "PT"]][0::2]
+    table_pruned = current_table[['TEAMS', 'M', "W", "L", "T", "PT", "NRR"]][0::2]
     table_pruned['team'] = table_pruned['TEAMS'].str.replace("^\\d*", "", regex=True)
     table_mapping = pd.read_csv("data/team_mappings.csv")
     formatted_table = table_pruned \
