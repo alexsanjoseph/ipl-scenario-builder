@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '0,15,30 10,14 * * *'
+    - cron: '*/15 13,17 * * *'
 jobs:
   update_data:
     runs-on: macos-latest
