@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * * '
+    - cron: '0,15,30 10,14 * * *'
 jobs:
   update_data:
     runs-on: macos-latest
@@ -21,8 +21,8 @@ jobs:
       run: pipenv run data
     - name: Commit report
       run: |
-        git config --global user.name 'autobot'
-        git config --global user.email 'autobot@users.noreply.github.com'
+        git config --global user.name 'alexsanjoseph'
+        git config --global user.email 'alexsanjoseph@gmail.com'
         git add -A
-        git commit -am "Automated data update"
+        git commit --allow-empty -am "Automated data update"
         git push
