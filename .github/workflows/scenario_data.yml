@@ -9,7 +9,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        cache: 'pip'
     - name: Run a one-line script
       run: PYTHONPATH=. python bin/ipl_scenario_data.py
     - name: switching from HTTPS to SSH
