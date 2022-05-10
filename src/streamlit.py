@@ -58,6 +58,5 @@ def reduce_whitespace():
         """
 
 
-def add_colour(val):
-    color = 'lightred' if val < 16 else 'lightyellow' if val == 16 else 'lightgreen'
-    return f'background-color: {color}'
+def highlighter(x):
+    return ['background-color: yellow' if x['Predicted'] is True else '' for s in x]

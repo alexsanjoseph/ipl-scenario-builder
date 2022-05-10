@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 from collections import Counter
-from src.streamlit import add_colour
+
+from src.streamlit import highlighter
 
 
 def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.DataFrame) -> pd.DataFrame:
@@ -57,14 +58,15 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
     final_df = mean_df  # pd.concat([mean_df, stdev_df], axis=1).reset_index(drop=True)
     # final_df['symbol'] = standings['symbol'].reset_index(drop=True)
     mean_df['final_standings'] = (mean_df['final_standings'] / 100).round().astype(int)
-    final_df = pd.concat([standings[["symbol", "M", "W", "L", "PT"]], mean_df], axis=1)
+    final_df = pd.concat([standings[["symbol", "M", "W", "L", "PT", 'predicted']], mean_df], axis=1)
     final_df = final_df.sort_values(['T2', 'T2NRR', 'Q', 'NRR', "final_standings"], ascending=False) \
         .rename({"symbol": "Team", "Q": "Top 4(%)", "final_standings": "Expected Points",
                  "M": "Matches", "W": "Wins", "L": "Losses", "PT": "Points",
                  "NRR": "Top 4 on NRR (%)", "F": "Not Top 4(%)",
-                 'T2': "Top 2", 'T2NRR': "Top 2 on NRR"
+                 'T2': "Top 2", 'T2NRR': "Top 2 on NRR",
+                 "predicted": "Predicted"
                  }, axis=1) \
         .reset_index(drop=True)  \
-        .drop("Expected Points", axis=1)
-    # .style.applymap(add_colour, subset="Expected Points")
+        .drop("Expected Points", axis=1) \
+        .style.apply(highlighter, axis=1)
     return(final_df)

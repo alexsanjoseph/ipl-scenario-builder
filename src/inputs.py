@@ -10,6 +10,10 @@ def format_standings(current_table: pd.DataFrame) -> pd.DataFrame:
         .merge(table_mapping, on='team') \
         .drop(axis=1, columns=['TEAMS', 'team'])
     formatted_table['PT'] = pd.to_numeric(formatted_table['PT'])
+    formatted_table['M'] = pd.to_numeric(formatted_table['M'])
+    formatted_table['W'] = pd.to_numeric(formatted_table['W'])
+    formatted_table['L'] = pd.to_numeric(formatted_table['L'])
+    formatted_table['predicted'] = False
     return formatted_table
 
 

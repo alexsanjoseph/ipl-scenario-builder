@@ -3,7 +3,7 @@ import numpy as np
 
 from src.inputs import get_standings, get_fixtures, get_standings, filter_fixtures
 from src.simulate import simulate_scenarios
-from src.streamlit import create_footer, hide_row_headers, hide_full_screen, reduce_whitespace
+from src.streamlit import create_footer, hide_row_headers, hide_full_screen, reduce_whitespace, highlighter
 
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 st.write('<style>div.row-widget.stSpinner > div{text-align:center;}</style>', unsafe_allow_html=True)
@@ -26,12 +26,29 @@ if 'winners' not in st.session_state:
     st.session_state['winners'] = ["Random"] * filtered_fixtures.shape[0]
 
 
+def update_winners_losers_stats(updated_standings, winner, loser):
+    winner_index = np.where(updated_standings['symbol'] == winner)[0][0]
+    loser_index = np.where(updated_standings['symbol'] == loser)[0][0]
+    updated_standings.loc[winner_index, 'M'] += 1
+    updated_standings.loc[winner_index, 'W'] += 1
+    updated_standings.loc[winner_index, 'PT'] += 2
+    updated_standings.loc[winner_index, 'predicted'] = True
+    updated_standings.loc[loser_index, 'M'] += 1
+    updated_standings.loc[loser_index, 'L'] += 1
+    updated_standings.loc[loser_index, 'predicted'] = True
+    return updated_standings
+
+
 def recalculate():
-    filtered_fixtures_fixed = filtered_fixtures
+    filtered_fixtures_fixed = filtered_fixtures.assign(predicted=False)
+    updated_standings = standings  # .assign(predicted=False)
     for i, x in enumerate(st.session_state['winners']):
         if x != "Random":
-            filtered_fixtures_fixed.iloc[i, :] = x
-    return filtered_fixtures_fixed
+            loser = list(set(filtered_fixtures_fixed.iloc[i, :2]).difference(set([x])))[0]
+            updated_standings = update_winners_losers_stats(updated_standings, x, loser)
+            filtered_fixtures_fixed.iloc[i, 3] = True
+
+    return filtered_fixtures_fixed, updated_standings
 
 
 table_slot = st.empty()
@@ -50,10 +67,11 @@ for i in range(filtered_fixtures.shape[0]):
         box_array.index(st.session_state['winners'][i])
     )
 
-filtered_fixtures_fixed = recalculate()
+filtered_fixtures_fixed, updated_standings = recalculate()
 # with st.spinner('Calculating scenarios...'):
 spinner.markdown("![Alt Text](https://c.tenor.com/nDhUSRc7Q-8AAAAd/timeline-doctor-strange.gif)")
-all_results = simulate_scenarios(filtered_fixtures_fixed, standings, iterations, progress)
+filtered_fixtures_fixed_2 = filtered_fixtures_fixed[filtered_fixtures_fixed['predicted'] == False]
+all_results = simulate_scenarios(filtered_fixtures_fixed_2, updated_standings, iterations, progress)
 spinner.empty()
 
 table_slot.table(all_results)
