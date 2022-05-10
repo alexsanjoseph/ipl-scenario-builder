@@ -23,5 +23,6 @@ jobs:
       run: |
         git config --global user.name 'autobot'
         git config --global user.email 'autobot@users.noreply.github.com'
+        git add -A
         git commit -am "Automated data update"
         git push
