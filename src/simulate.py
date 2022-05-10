@@ -64,9 +64,9 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
                  "M": "Matches", "W": "Wins", "L": "Losses", "PT": "Points",
                  "NRR": "Top 4 on NRR (%)", "F": "Not Top 4(%)",
                  'T2': "Top 2", 'T2NRR': "Top 2 on NRR",
-                 "predicted": "Predicted"
                  }, axis=1) \
         .reset_index(drop=True)  \
         .drop("Expected Points", axis=1) \
-        .style.apply(highlighter, axis=1)
+        .style.apply(highlighter, axis=1) \
+        .hide(['predicted'], axis=1)
     return(final_df)

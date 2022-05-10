@@ -74,7 +74,9 @@ filtered_fixtures_fixed_2 = filtered_fixtures_fixed[filtered_fixtures_fixed['pre
 all_results = simulate_scenarios(filtered_fixtures_fixed_2, updated_standings, iterations, progress)
 spinner.empty()
 
-table_slot.table(all_results)
+table_slot.write(all_results.to_html(), unsafe_allow_html=True)
+
+st.markdown("")
 
 with st.expander("Methodology ⓘ"):
     st.markdown("""
