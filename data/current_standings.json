@@ -18,12 +18,12 @@
     "predicted":false
   },
   "rr":{
-    "m":11,
+    "m":12,
     "w":7,
-    "l":4,
+    "l":5,
     "nr":"0",
     "p":14,
-    "nrr":"0.326",
+    "nrr":"0.228",
     "predicted":false
   },
   "rcb":{
@@ -36,12 +36,12 @@
     "predicted":false
   },
   "dc":{
-    "m":11,
-    "w":5,
+    "m":12,
+    "w":6,
     "l":6,
     "nr":"0",
-    "p":10,
-    "nrr":"0.150",
+    "p":12,
+    "nrr":"0.210",
     "predicted":false
   },
   "srh":{
