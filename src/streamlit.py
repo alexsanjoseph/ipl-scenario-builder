@@ -59,4 +59,4 @@ def reduce_whitespace():
 
 
 def highlighter(x):
-    return ['background-color: darkgoldenrod' if x['predicted'] is True else '' for s in x]
+    return ['background-color: cornflowerblue' if x['predicted'] is True else '' for s in x]
