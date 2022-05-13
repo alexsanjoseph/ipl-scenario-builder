@@ -53,6 +53,7 @@ def reduce_whitespace():
 <style>
 .block-container {
     margin-top: -8rem;
+    max-width: 66rem;
 }
 </style>
         """
