@@ -20,3 +20,4 @@ python_version = "3.9"
 
 [scripts]
 data = "bash -c 'PYTHONPATH=. python3 bin/ipl_scenario_data.py'"
+app = "bash -c 'PYTHONPATH=. streamlit run app.py'"

@@ -23,7 +23,7 @@ def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.
     standings['T2NRR'] = (standings['final_standings'] >= t2points_threshold).astype(int)
 
     standings['Q'] = (standings['final_standings'] > t5points_threshold).astype(int)
-    standings['NRR'] = (standings['final_standings'] >= t4points_threshold).astype(int)
+    standings['T4NRR'] = (standings['final_standings'] >= t4points_threshold).astype(int)
     standings['F'] = (standings['final_standings'] < t4points_threshold).astype(int)
 
     return standings
@@ -31,12 +31,12 @@ def simulate_single_iteration(filtered_fixtures_np: pd.DataFrame, standings: pd.
 
 def simulate_single_epoch(filtered_fixtures_np: pd.DataFrame, standings: pd.DataFrame, iterations: int = 1000, progress=None) -> pd.DataFrame:
     all_standings = standings[['symbol']].drop(['symbol'], axis=1)
-    all_standings[['T2', 'T2NRR', 'Q', 'NRR', 'F', "final_standings"]] = 0
+    all_standings[['T2', 'T2NRR', 'Q', 'T4NRR', 'F', "final_standings"]] = 0
     for i in range(iterations):
         if progress:
             progress.progress(i/iterations)
         standings = simulate_single_iteration(filtered_fixtures_np, standings)
-        all_standings += standings[['T2', 'T2NRR', 'Q', 'NRR', 'F', 'final_standings']]
+        all_standings += standings[['T2', 'T2NRR', 'Q', 'T4NRR', 'F', 'final_standings']]
     return all_standings * 100/iterations
 
 
@@ -53,17 +53,18 @@ def simulate_scenarios(filtered_fixtures: pd.DataFrame, standings: pd.DataFrame,
     #
     # all_standings_list
     mean_df = pd.DataFrame(np.array(all_standings_list).mean(axis=0), columns=[
-                           'T2', 'T2NRR', 'Q', 'NRR', 'F', "final_standings"])
+                           'T2', 'T2NRR', 'Q', 'T4NRR', 'F', "final_standings"])
     # stdev_df = pd.DataFrame(np.array(all_standings_list).std(axis=0), columns=['QStdev', 'NRRStdev', 'FStdev'])
     final_df = mean_df  # pd.concat([mean_df, stdev_df], axis=1).reset_index(drop=True)
     # final_df['symbol'] = standings['symbol'].reset_index(drop=True)
     mean_df['final_standings'] = (mean_df['final_standings'] / 100).round().astype(int)
-    final_df = pd.concat([standings[["symbol", "M", "W", "L", "PT", 'predicted']], mean_df], axis=1)
+    final_df = pd.concat([standings[["symbol", "M", "W", "L", "PT", "NRR", 'predicted']], mean_df], axis=1)
     final_df = final_df.sort_values(['PT', 'T2', 'T2NRR', 'Q', 'NRR', "final_standings"], ascending=False) \
         .rename({"symbol": "Team", "Q": "Top 4(%)", "final_standings": "Expected Points",
                  "M": "Matches", "W": "Wins", "L": "Losses", "PT": "Points",
-                 "NRR": "Top 4 on NRR (%)", "F": "Not Top 4(%)",
+                 "T4NRR": "Top 4 on NRR (%)", "F": "Not Top 4(%)",
                  'T2': "Top 2", 'T2NRR': "Top 2 on NRR",
+                 'NRR': "Current NRR"
                  }, axis=1) \
         .reset_index(drop=True)  \
         .drop("Expected Points", axis=1) \
