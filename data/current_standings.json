@@ -8,22 +8,22 @@
     "nrr":"0.391",
     "predicted":false
   },
-  "lsg":{
-    "m":12,
-    "w":8,
-    "l":4,
-    "nr":"0",
-    "p":16,
-    "nrr":"0.385",
-    "predicted":false
-  },
   "rr":{
-    "m":12,
-    "w":7,
+    "m":13,
+    "w":8,
     "l":5,
     "nr":"0",
-    "p":14,
-    "nrr":"0.228",
+    "p":16,
+    "nrr":"0.304",
+    "predicted":false
+  },
+  "lsg":{
+    "m":13,
+    "w":8,
+    "l":5,
+    "nr":"0",
+    "p":16,
+    "nrr":"0.262",
     "predicted":false
   },
   "rcb":{
