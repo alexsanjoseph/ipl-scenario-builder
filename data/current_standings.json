@@ -63,12 +63,12 @@
     "predicted":false
   },
   "srh":{
-    "m":12,
-    "w":5,
+    "m":13,
+    "w":6,
     "l":7,
     "nr":"0",
-    "p":10,
-    "nrr":"-0.270",
+    "p":12,
+    "nrr":"-0.230",
     "predicted":false
   },
   "csk":{
@@ -81,12 +81,12 @@
     "predicted":false
   },
   "mi":{
-    "m":12,
+    "m":13,
     "w":3,
-    "l":9,
+    "l":10,
     "nr":"0",
     "p":6,
-    "nrr":"-0.613",
+    "nrr":"-0.577",
     "predicted":false
   }
 }
