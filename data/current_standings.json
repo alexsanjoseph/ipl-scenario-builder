@@ -8,6 +8,15 @@
     "nrr":"0.316",
     "predicted":false
   },
+  "rr":{
+    "m":14,
+    "w":9,
+    "l":5,
+    "nr":"0",
+    "p":18,
+    "nrr":"0.298",
+    "predicted":false
+  },
   "lsg":{
     "m":14,
     "w":9,
@@ -15,15 +24,6 @@
     "nr":"0",
     "p":18,
     "nrr":"0.251",
-    "predicted":false
-  },
-  "rr":{
-    "m":13,
-    "w":8,
-    "l":5,
-    "nr":"0",
-    "p":16,
-    "nrr":"0.304",
     "predicted":false
   },
   "rcb":{
@@ -72,12 +72,12 @@
     "predicted":false
   },
   "csk":{
-    "m":13,
+    "m":14,
     "w":4,
-    "l":9,
+    "l":10,
     "nr":"0",
     "p":8,
-    "nrr":"-0.206",
+    "nrr":"-0.203",
     "predicted":false
   },
   "mi":{
